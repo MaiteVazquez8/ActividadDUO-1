@@ -21,6 +21,7 @@
               <span class="producto-cantidad">Cantidad: {{ producto.Cantidad }}</span>
               <span class="producto-precio">${{ producto.Precio }}</span>
             </div>
+            <a href="{% url 'Modificar' producto.Codigo %}">Modificar</a>
           </div>
         </article>
       {% endfor %}
