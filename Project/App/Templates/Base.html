@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+  <header class="Encabezado">
+    <a href="{% url 'Inicio' %}"><img src="{% static 'src/escudoRavenclaw.png' %}" alt="Logo" title="Logo"
+        class="Logo"></a>
+    <nav class="menu">
+      <ul>
+        <li>{% block Productos %} <a href="{% url 'Producto' %}">Productos</a> {% endblock %}</li>
+        <li>{% block agregarProductos %}<a href="{% url 'Agregar' %}">Agregar producto</a>{% endblock %}</li>
+      </ul>
+    </nav>
+  </header>
+  <main class="hero">
+    {% block Cuerpo %}
+    <section class="personal">
+      <div class="contenedoor">
+        <h2>Ravenclaw</h2>
+        <h4>Seguramente ya sabes que entre los miembros más famosos de Ravenclaw se encuentran Gilderoy Lockhart y Luna
+          Lovegood. Pero, ¿sabías que la Dama Gris de Ravenclaw es el fantasma menos hablador de Hogwarts, o que la sala
+          común de Ravenclaw ofrece las vistas más impresionantes de los terrenos del castillo?</h4>
+      </div>
+      <img src="{% static 'src/escudoRavenclaw.png' %}" alt="Ravenclaw">
+    </section>
+    <hr>
+    <section class="galeria">
+      <h1>Informacion de la casa</h1>
+      <div class="juegos">
+        <div class="galeriaImagenes">
+          <img src="{% static 'src/mascotaRavenclaw.png' %}" alt="Ravenclaw">
+          <p>Mascota</p>
+          <h4>Águila</h4>
+        </div>
+        <div class="galeriaImagenes">
+          <img src="{% static 'src/colorRavenclaw.png' %}" alt="Ravenclaw">
+          <p>Bandera</p>
+          <h4>Azul y Bronce</h4>
+        </div>
+        <div class="galeriaImagenes">
+          <img src="{% static 'src/fantasma.png' %}" alt="Ravenclaw">
+          <p>Fantasma</p>
+          <h4>Dama Gris</h4>
+        </div>
+      </div>
+    </section>
+    <hr>
+    <section class="peliculas">
+      <h1>Ravenclaws notables</h1>
+      <div class="pelicula">
+
+        <div class="actores">
+
+          <div class="actor">
+            <h4>Luna Lovegood</h4>
+            <img src="{% static 'src/luna.png' %}" alt="Luna Lovegood">
+            <h4>Una excéntrica estudiante de Ravenclaw , miembro del Ejército de Dumbledore y amiga íntima de Harry
+              Potter.</h4>
+          </div>
+
+          <div class="actor">
+            <h4>Gilderoy Lockhart</h4>
+            <img src="{% static 'src/lockhart.png' %}" alt="Gilderoy Lockhart">
+            <h4>Un autor famoso que había escrito muchos libros populares antes de unirse a Hogwarts como profesor de
+              Defensa Contra las Artes Oscuras en el segundo año de Harry.</h4>
+          </div>
+
+          <div class="actor">
+            <h4>Filius Flitwick</h4>
+            <img src="{% static 'src/flitwick.png' %}" alt="Filius Flitwick">
+            <h4>Como profesor de Encantamientos en Hogwarts , se encargaba de enseñar a sus alumnos desde encantamientos
+              de ánimo hasta hacer volar objetos , combinando la correcta pronunciación de los conjuros con los
+              movimientos precisos de la varita.</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endblock %}
+  </main>
+
+  <footer>
+    <div class="todo">
+      <section class="apps">
+        <a href=""><img src="{% static 'src/facebook2.png' %}" alt="fb"></a>
+        <a href=""><img src="{% static 'src/instagram2.png' %}" alt="ig"></a>
+        <a href=""><img src="{% static 'src/twitter.png' %}" alt="tw"></a>
+      </section>
+    </div>
+  </footer>
+</body>
+
+</html>

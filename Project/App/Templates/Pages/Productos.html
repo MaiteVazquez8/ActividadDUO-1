@@ -1,0 +1,31 @@
+{% extends 'Base.html' %}
+{% block Productos %}
+<a href="{% url 'Inicio' %}">Inicio</a>
+{% endblock %}
+
+{% block Cuerpo %}
+  <section class="productos-grid">
+    {% if productos %}
+      {% for producto in productos %}
+        <article class="producto-card">
+          {% if producto.Imagen %}
+            <img class="producto-img" src="{{ producto.Imagen.url }}" alt="{{ producto.Nombre }}">
+          {% else %}
+            <div class="producto-img producto-img-placeholder">No hay imagen</div>
+          {% endif %}
+          <div class="producto-content">
+            <h2>{{ producto.Nombre }}</h2>
+            <p class="producto-meta">Categoría: {{ producto.Categoria }} • Colores: {{ producto.Colores }}</p>
+            <p class="producto-descripcion">{{ producto.Descripcion }}</p>
+            <div class="producto-datos">
+              <span class="producto-cantidad">Cantidad: {{ producto.Cantidad }}</span>
+              <span class="producto-precio">${{ producto.Precio }}</span>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    {% else %}
+      <p class="sin-productos">No hay productos registrados.</p>
+    {% endif %}
+  </section>
+{% endblock %}

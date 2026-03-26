@@ -1,0 +1,21 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block agregarProductos %}
+<a href="{% url 'Inicio' %}">Inicio</a>
+{% endblock %}
+{% block Cuerpo %}
+<section class="agregar-container">
+  <div class="agregar-imagen">
+    <img src="{% static 'src/form/imagenForm.jpg' %}" alt="Imagen formulario">
+  </div>
+  <div class="agregar-form">
+    <h1>Agregar Producto</h1>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ Formularios.as_p }}
+      <button type="submit" class="btn-primario">Registrar Producto</button>
+    </form>
+    <p class="mensaje-form">{{ Mensaje }}</p>
+  </div>
+</section>
+{% endblock %}
