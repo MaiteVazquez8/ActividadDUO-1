@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
     'App',
 ]
 
@@ -123,3 +124,11 @@ import os
 MEDIA_URL = '/Media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'Media')
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': 300,
+    },
+}

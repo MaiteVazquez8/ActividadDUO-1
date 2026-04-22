@@ -1,10 +1,15 @@
 from django.shortcuts import render,get_object_or_404
 from .models import *
 from .forms import *
+from django.db.models import Q
 
 # Create your views here.
 def Home(request):
-    return render(request,'Base.html')
+    query=Producto.objects.all().order_by('-Codigo')[:3]
+    data={
+        'Productos':query
+    }
+    return render(request,'Base.html',data)
 
 def agregarProd(request):
     producto=Producto.objects.all()
@@ -23,6 +28,9 @@ def agregarProd(request):
 
 def verProductos(request):
     productos = Producto.objects.all()
+    Filtro=request.GET.get('Filtrar')
+    if Filtro:
+        buscar=Producto.objects.filter(Q(Nombre__icontains=Filtro)).distinct()
     print(productos)
     data = {
         'productos': productos
